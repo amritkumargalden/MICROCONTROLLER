@@ -1,0 +1,22 @@
+ORG 0000H
+	MOV R0, #31H
+	MOV A, #30H
+	MOV @R1, A
+	MOV R2, #04H
+	
+	LOOP:
+	
+	CJNE R1, @R0, DOWN
+	DOWN: NOP
+	
+	JNC GAYO
+	GAYO: 
+	MOV A, @R0
+	MOV @R1, A
+	
+	JC AAYO
+	AAYO:
+	INC R0
+	
+	DJNZ R2, LOOP
+	END	
